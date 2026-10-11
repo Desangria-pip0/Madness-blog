@@ -1,0 +1,24 @@
+
+---
+import "../styles/global.css";
+
+const {
+  title = "NEON//VOID",
+  description = "Personal archive from a broken world."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#0a0a0c" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <slot />
+  </body>
+</html>

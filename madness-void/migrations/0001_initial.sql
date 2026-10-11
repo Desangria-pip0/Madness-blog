@@ -1,0 +1,37 @@
+
+CREATE TABLE IF NOT EXISTS entries (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  slug TEXT NOT NULL UNIQUE,
+  title TEXT NOT NULL,
+  excerpt TEXT NOT NULL DEFAULT '',
+  body TEXT NOT NULL DEFAULT '',
+  cover_key TEXT,
+  published INTEGER NOT NULL DEFAULT 0,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_entries_published_date
+ON entries (published, created_at DESC);
+
+CREATE TABLE IF NOT EXISTS tags (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL UNIQUE,
+  slug TEXT NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS entry_tags (
+  entry_id INTEGER NOT NULL REFERENCES entries(id)
+    ON DELETE CASCADE,
+  tag_id INTEGER NOT NULL REFERENCES tags(id)
+    ON DELETE CASCADE,
+  PRIMARY KEY (entry_id, tag_id)
+);
+
+CREATE TABLE IF NOT EXISTS site_stats (
+  key TEXT PRIMARY KEY,
+  value INTEGER NOT NULL DEFAULT 0
+);
+
+INSERT OR IGNORE INTO site_stats (key, value)
+VALUES ('page_views', 0);

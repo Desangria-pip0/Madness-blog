@@ -1,0 +1,56 @@
+
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import StatusPanel from "../components/StatusPanel.astro";
+---
+
+<MainLayout title="NEON//VOID — archivo personal">
+  <div class="site-shell">
+    <SiteHeader />
+
+    <main>
+      <section class="hero panel">
+        <p class="eyebrow">PERSONAL ARCHIVE / ENTRY 000</p>
+        <h1>NEON<span>//</span>VOID</h1>
+        <p class="hero-copy">
+          Fragmentos de una mente en una señal que nunca termina.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="/diary/">
+            [ LEER EL DIARIO ]
+          </a>
+          <a class="button" href="/gallery">
+            [ ABRIR ARCHIVO VISUAL ]
+          </a>
+        </div>
+        <p class="micro">CONEXIÓN INESTABLE // SIGUE TRANSMITIENDO</p>
+      </section>
+
+      <div class="content-grid">
+        <section class="panel">
+          <p class="eyebrow">01 / ÚLTIMA TRANSMISIÓN</p>
+          <h2>Un lugar para guardar los restos.</h2>
+          <p>
+            Pensamientos, imágenes, música y cosas que no quiero perder.
+            Este sitio todavía está en construcción.
+          </p>
+          <a class="text-link" href="/diary/">ACCEDER A LAS ENTRADAS ↗</a>
+        </section>
+
+        <StatusPanel />
+      </div>
+
+      <section class="panel archive-strip">
+        <span>ARCHIVO VISUAL</span>
+        <span>SEÑAL SONORA</span>
+        <span>NOTAS PERSONALES</span>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>NEON//VOID © 2026</span>
+      <span>NO SIGNAL IS EVER CLEAN.</span>
+    </footer>
+  </div>
+</MainLayout>
